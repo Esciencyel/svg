@@ -49,12 +49,12 @@ AUTHOR_NAME = 'Manfred Moitzi'
 AUTHOR_EMAIL = 'me@mozman.at'
 CYEAR = '2014-2019'
 
-
+'''
 from svgwrite.drawing import Drawing
 from svgwrite.utils import rgb
+'''m
 
-
-class Unit(object):
+class Unit:
     """ Add units to values.
     """
     def __init__(self, unit='cm'):
@@ -64,9 +64,9 @@ class Unit(object):
         """
         self._unit = unit
 
-    def __rmul__(self, other):
-        """ add unit-string to 'other'. (e.g. 5*cm => '5cm') """
-        return "%s%s" % (other, self._unit)
+    def __rmul__(self, value):
+        """ add unit-string to 'value'. (e.g. 5*cm => '5cm') """
+        return f"{value}{self.unit}"
 
     def __call__(self, *args):
         """ Add unit-strings to all arguments.
@@ -74,7 +74,7 @@ class Unit(object):
         :param args: list of values
             e.g.: cm(1,2,3) => '1cm,2cm,3cm'
         """
-        return ','.join(["%s%s" % (arg, self._unit) for arg in args])
+        return ','.join([f"{arg}{self._unit}" for arg in args])
 
 
 cm = Unit('cm')
