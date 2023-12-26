@@ -7,7 +7,7 @@
 # License: MIT License
 
 
-class SVGAttribute(object):
+class SVGAttribute:
     def __init__(self, name, anim, types, const):
         self.name = name
         self._anim = anim
@@ -27,7 +27,7 @@ class SVGAttribute(object):
         return self._const
 
 
-class SVGMultiAttribute(object):
+class SVGMultiAttribute:
     # example: SVGMultiAttribute({'*':SVGAttribute(...), 'text tref':SVGAttribute(...)} )
     # parametr is a dict-like object
     # '*' is the default attribute definition
@@ -45,7 +45,7 @@ class SVGMultiAttribute(object):
                     self.name = attribute.name
                 elif self.name != attribute.name:
                     raise ValueError("Different attribute-names for SVGMultiAttribute "\
-                                     "(%s != %s)." % (self.name, attribute.name))
+                                     f"({self.name}!= {attribute.name})."
 
         if '*' not in self._attributes and len(self._attributes):
             # if no default attribute definition were given
@@ -72,7 +72,7 @@ class SVGMultiAttribute(object):
         return attribute.get_const()
 
 
-class SVGElement(object):
+class SVGElement:
     def __init__(self, name, attributes, properties, children):
         self.name = name
         s = set(attributes)
