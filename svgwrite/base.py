@@ -17,7 +17,7 @@ from svgwrite.params import Parameter
 from svgwrite.utils import AutoID
 
 
-class BaseElement(object):
+class BaseElement:
     """
     The **BaseElement** is the root for all SVG elements. The SVG attributes
     are stored in **attribs**, and the SVG subelements are stored in
@@ -259,7 +259,7 @@ class BaseElement(object):
                 self.elements.insert(pos, metadata)
 
 
-class Title(object):
+class Title:
     elementname = 'title'
 
     def __init__(self, text):
