@@ -59,7 +59,6 @@ class Unit:
     """
     def __init__(self, unit='cm'):
         """ Unit constructor
-
         :param str unit: specify the unit string
         """
         self._unit = unit
@@ -70,7 +69,6 @@ class Unit:
 
     def __call__(self, *args):
         """ Add unit-strings to all arguments.
-
         :param args: list of values
             e.g.: cm(1,2,3) => '1cm,2cm,3cm'
         """
